@@ -1,0 +1,286 @@
+
+@font-face
+{
+	font-family: "Material Design Icons";
+	font-style: normal;
+	font-weight: normal;
+	
+	src:
+		url("../fonts/material-design-icons/regular.eot");
+	src:
+		url("../fonts/material-design-icons/regular.woff2") format("woff2"),
+		url("../fonts/material-design-icons/regular.woff") format("woff"),
+		url("../fonts/material-design-icons/regular.tff") format("truetype");
+}
+
+body
+{
+	background-color: rgba(20, 20, 20, 1);
+	
+	margin: 0px;
+	padding: 0px;
+}
+
+.container_main
+{
+	max-width: 1280px;
+	min-width: 320px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.container_header
+{
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.container_navbar
+{
+	background-color: rgba(10, 10, 10, 1);
+	
+	/* To remove whitespace between elements with display = inline-block */
+	font-size: 0px;
+}
+
+.container_content
+{
+	max-width: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.container_footer
+{
+	background-color: rgba(10, 10, 10, 1);
+	
+	margin-bottom: 15px;
+}
+
+.container_post_footer
+{
+	margin-bottom: 15px;
+}
+
+.border_section
+{
+	border-color: rgba(100, 100, 100, 1);
+	
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-width: 1px;
+}
+
+.header_logo img
+{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navbar_item
+{
+	display: inline-block;
+	margin: 0px;
+	padding: 0px;
+	overflow: hidden;
+	width: 144px;
+	height: 52px;
+	line-height: 52px;
+}
+
+.navbar_item .icon
+{
+	position: absolute;
+	font-family: "Material Design Icons";
+	font-size: 24px;
+	text-align: center;
+	width: 52px;
+}
+
+.navbar_item .text
+{
+	font-family: "Verdana";
+	font-size: 12px;
+	text-align: left;
+	width: 92px;
+	margin-left: 48px;
+}
+
+.navbar_item .icon a
+{
+	color: rgba(255, 255, 255, 1);
+	
+	display: inline-block;
+	width: 52px;
+	height: 52px;
+	text-decoration: none;
+}
+
+.navbar_item .text a
+{
+	color: rgba(255, 255, 255, 1);
+	
+	display: inline-block;
+	width: 92px;
+	height: 52px;
+	padding-left: 12px;
+	text-decoration: none;
+}
+
+.navbar_item:hover, .navbar_item.active:hover
+{
+	background-color: rgba(100, 100, 100, 1);
+}
+
+.navbar_item.active
+{
+	background-color: rgba(50, 50, 50, 1);
+}
+
+.content_entry_home
+{
+	position: relative;
+}
+
+.content_entry_home:not(:last-child)
+{
+	margin-bottom: 25px;
+}
+
+.content_entry_home img
+{
+	color: rgba(255, 255, 255, 1);
+	
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.content_entry_home .title_container
+{
+	background-image:
+		linear-gradient(to right, rgba(255, 125, 0, 1) 50%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to right, rgba(255, 125, 0, 1) 50%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to right, rgba(10, 10, 10, 1) 50%, rgba(0, 0, 0, 0) 100%);
+	background-size:
+		100% 1px,
+		100% 1px,
+		100% 100%;
+	background-position:
+		0% 0%,
+		0% 100%,
+		0% 100%;
+	background-repeat: no-repeat;
+
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: auto;
+}
+
+.content_entry_home .title_text
+{
+	color: rgba(255, 255, 255, 1);
+	
+	font-family: "Courier New";
+	font-size: 18px;
+	font-style: italic;
+	/* letter-spacing: 1.5px; */
+	line-height: 32px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.text_info
+{
+	color: rgba(255, 255, 255, 1);
+
+	font-family: "Verdana";
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.text_info:not(:first-child)
+{
+	padding-top: 10px;
+}
+
+.text_heading_info
+{
+	color: rgba(255, 255, 255, 1);
+
+	font-family: "Verdana";
+	font-size: 14px;
+	line-height: 22px;
+	font-weight: bold;
+	font-style: italic;
+	padding-top: 25px;
+}
+
+.footer_copyright
+{
+	color: rgba(255, 255, 255, 1);
+	
+	font-size: 12px;
+	font-family: "Verdana";
+	text-align: center;
+	line-height: 18px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.footer_jump_to_top
+{
+	display: none;
+	text-align: center;
+}
+
+.footer_jump_to_top button
+{
+	background-color: rgba(0, 0, 0, 0);
+	color: rgba(255, 255, 255, 1);
+	
+	border: none;
+	outline: none;
+	font-size: 12px;
+	font-family: "Verdana";
+	text-align: center;
+	text-decoration: none;
+	width: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.footer_jump_to_top button:hover
+{
+	background-color: rgba(100, 100, 100, 1);
+}
+
+@media only screen and (max-width: 1023px)
+{
+	
+}
+
+@media only screen and (max-width: 767px)
+{
+	
+}
+
+@media only screen and (max-width: 599px)
+{
+	
+}
+
+@media only screen and (max-width: 479px)
+{
+	
+}
