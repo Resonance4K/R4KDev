@@ -6,6 +6,7 @@ const ROUTES =
 	CSS: require("./routes/css"),
 	FONT: require("./routes/font"),
 	HTML: require("./routes/html"),
+	HTTP_METHOD: require("./routes/http-method"),
 	IMAGE: require("./routes/image"),
 	JS: require("./routes/js")
 };
