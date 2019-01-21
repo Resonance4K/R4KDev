@@ -224,6 +224,44 @@ body
 	padding-top: 25px;
 }
 
+.contact_form
+{
+	max-width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.contact_form label
+{
+	color: rgba(255, 255, 255, 1);
+
+	font-family: "Verdana";
+	font-size: 12px;
+	line-height: 18px;
+}
+
+.contact_form .submit
+{
+	text-align: center;
+}
+
+.contact_form input[type="text"]
+{
+	width: 100%;
+}
+
+.contact_form textarea
+{
+	width: 100%;
+	min-height: 120px;
+	resize: none;
+}
+
+.contact_form input[type="submit"]
+{
+	width: 150px;
+}
+
 .footer_copyright
 {
 	color: rgba(255, 255, 255, 1);
