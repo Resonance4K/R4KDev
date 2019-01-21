@@ -16,7 +16,7 @@ function jumpToTop()
 
 function updateElementJumpToTop()
 {
-	var element = document.getElementById("footer_jump_to_top");
+	const element = document.getElementById("footer_jump_to_top");
 	
 	if (isWholePageVisible())
 	{
@@ -30,8 +30,13 @@ function updateElementJumpToTop()
 
 function isWholePageVisible()
 {
-	var height = document.documentElement.clientHeight;
-	var totalHeight = document.documentElement.offsetHeight;
+	const height = document.documentElement.clientHeight;
+	const totalHeight = document.documentElement.offsetHeight;
 	
 	return (totalHeight <= height ? true : false);
+}
+
+function jumpToElement(elementID)
+{
+	document.getElementById(elementID).scrollIntoView(true);
 }
