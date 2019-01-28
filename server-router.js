@@ -1,84 +1,74 @@
 
-const FS = require("fs");
+const LOGGER = require("./server-logger");
 
-const ROUTES =
+const FILES =
 {
-	CSS: require("./routes/css"),
-	FONT: require("./routes/font"),
-	HTML: require("./routes/html"),
-	HTTP_METHOD: require("./routes/http-method"),
-	IMAGE: require("./routes/image"),
-	JS: require("./routes/js")
+	MAIN: require("./routes/main"),
+	PROJECT: require("./routes/project")
 };
 
-const ERRORS =
-{
-	ROUTE_NOT_DEFINED: 1,
-	FILE_NOT_FOUND: 2
-};
+const ROUTES = [];
 
-module.exports =
-{
-	handleRequest,
-	display
-};
+populateRoutes();
 
-function handleRequest(request, response)
+function populateRoutes()
 {
+	ROUTES.push(FILES.MAIN.getRoutes());
+	ROUTES.push(FILES.PROJECT.getRoutes());
+
+	logRoutes();
+}
+
+module.exports.handleRequest = function handleRequest(request, response)
+{
+	return processRequest(request, response);
+}
+
+function processRequest(request, response)
+{
+	const method = request.method;
 	const path = request.url;
-	
-	if (ROUTES.HTML.process(response, path, this)) { return; }
-	if (ROUTES.CSS.process(response, path, this)) { return; }
-	if (ROUTES.JS.process(response, path, this)) { return; }
-	if (ROUTES.IMAGE.process(response, path, this)) { return; }
-	if (ROUTES.FONT.process(response, path, this)) { return; }
-	
-	displayError(response, 404, path, ERRORS.ROUTE_NOT_DEFINED);
-}
 
-function display(response, path, type)
-{
-	filepath = "." + path;
-
-	FS.readFile(filepath, null, function(error, data)
+	for (var i = 0; i < ROUTES.length; i++)
 	{
-		if (error)
-		{
-			displayError(response, 404, path, ERRORS.FILE_NOT_FOUND);
-		}
-		else
-		{
-			displayData(response, data, type);
-		}
-	});
-}
+		if (ROUTES[i] == null || ROUTES[i].length === 0) { continue; }
 
-function displayError(response, statusCode, path, type = null)
-{
-	var message = null;
-
-	switch (type)
-	{
-		case ERRORS.ROUTE_NOT_DEFINED:
-			message = "Route not defined";
-			break;
-		case ERRORS.FILE_NOT_FOUND:
-			message = "File not found";
-			break;
-		default:
-			message = "Undefined error";
-			break;
+		for (var j = 0; j < ROUTES[i].length; j++)
+		{
+			if (ROUTES[i][j].method === method && ROUTES[i][j].path === path)
+			{
+				ROUTES[i][j].callback(request, response);
+				return true;
+			}
+		}
 	}
 
-	response.writeHead(statusCode);
-	response.write("[ERROR] " + message + "!");
-	console.log("[ERROR] " + message + ": " + path);
-	response.end();
+	return false;
 }
 
-function displayData(response, data, type)
+function logRoutes()
 {
-	response.writeHead(200, { "Content-Type": type });
-	response.write(data);
-	response.end();
+	LOGGER.plain("ROUTES:");
+	LOGGER.divider(40);
+	LOGGER.newline();
+
+	var routesExist = false;
+	for (var i = 0; i < ROUTES.length; i++)
+	{
+		if (ROUTES[i] == null || ROUTES[i].length === 0) { continue; }
+
+		routesExist = true;
+		for (var j = 0; j < ROUTES[i].length; j++)
+		{
+			LOGGER.info(ROUTES[i][j].method + ": " + ROUTES[i][j].path);
+		}
+	}
+
+	LOGGER.newline();
+	LOGGER.divider(40);
+
+	if (routesExist === true)
+	{
+		LOGGER.newline(2);
+	}
 }

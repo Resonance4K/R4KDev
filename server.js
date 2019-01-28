@@ -1,29 +1,40 @@
 
+const LOGGER = require("./server-logger");
+const APPLICATION = require("./server-application");
+
 const HTTP = require("http");
 
-const ROUTER = require("./server-router");
+const HOSTNAME = "127.0.0.1";
+const PORT = 3000;
 
 const SERVER = HTTP.createServer(function(request, response)
 {
-	ROUTER.handleRequest(request, response);
+	APPLICATION.handleRequest(request, response);
 });
 
-SERVER.listen(3000, "127.0.0.1", function()
+SERVER.listen(PORT, HOSTNAME, function()
 {
 	logRunningMessage();
 	logProperties();
+	logListeningMessage();
 });
 
 function logRunningMessage()
 {
-	console.log("Server is running...");
-	console.log();
+	LOGGER.info("Server is running...");
+	LOGGER.newline();
 }
 
 function logProperties()
 {
-	console.log("HOSTNAME: " + SERVER.address().address);
-	console.log("PORT: " + SERVER.address().port);
-	console.log("FAMILY: " + SERVER.address().family);
-	console.log();
+	LOGGER.info("HOSTNAME: " + SERVER.address().address);
+	LOGGER.info("PORT: " + SERVER.address().port);
+	LOGGER.info("FAMILY: " + SERVER.address().family);
+	LOGGER.newline();
+}
+
+function logListeningMessage()
+{
+	LOGGER.info("Server is listening for requests...");
+	LOGGER.newline(2);
 }

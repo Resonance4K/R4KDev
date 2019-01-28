@@ -1,9 +1,8 @@
 
-# R4KDev
+<p align="center">
+	<img src="/images/logo.png?raw=true" alt="Logo" />
+</p>
 
-![R4KDev](/images/logo.png?raw=true "R4KDev")
-
-
-## Introduction
-
-R4KDev is an electronic portfolio containing various projects developed by Resonance4K.
+<p align="center">
+	An electronic portfolio containing various projects developed by Resonance4K.
+</p>
