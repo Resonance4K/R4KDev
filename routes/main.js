@@ -6,10 +6,6 @@ module.exports.getRoutes = function getRoutes()
 {
 	const routes = [];
 
-	// ----------------------------------------------------------------------------------------------------
-	// HTML
-	// ----------------------------------------------------------------------------------------------------
-
 	routes.push(
 	{
 		method: "GET",
@@ -50,10 +46,6 @@ module.exports.getRoutes = function getRoutes()
 		}
 	});
 
-	// ----------------------------------------------------------------------------------------------------
-	// CSS
-	// ----------------------------------------------------------------------------------------------------
-
 	routes.push(
 	{
 		method: "GET",
@@ -64,10 +56,6 @@ module.exports.getRoutes = function getRoutes()
 		}
 	});
 
-	// ----------------------------------------------------------------------------------------------------
-	// JS
-	// ----------------------------------------------------------------------------------------------------
-
 	routes.push(
 	{
 		method: "GET",
@@ -77,10 +65,6 @@ module.exports.getRoutes = function getRoutes()
 			APPLICATION.getResource(response, this.path, MIME_TYPE.JS);
 		}
 	});
-
-	// ----------------------------------------------------------------------------------------------------
-	// IMAGES
-	// ----------------------------------------------------------------------------------------------------
 
 	routes.push(
 	{
@@ -142,10 +126,6 @@ module.exports.getRoutes = function getRoutes()
 		}
 	});
 
-	// ----------------------------------------------------------------------------------------------------
-	// FONTS
-	// ----------------------------------------------------------------------------------------------------
-
 	routes.push(
 	{
 		method: "GET",
@@ -183,6 +163,27 @@ module.exports.getRoutes = function getRoutes()
 		callback: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.TTF);
+		}
+	});
+
+	routes.push(
+	{
+		method: "POST",
+		path: "/contact",
+		callback: function(request, response)
+		{
+			var data = "";
+
+			request.on("data", function(chunk)
+			{
+				data += chunk.toString();
+			});
+
+			request.on("end", function()
+			{
+				console.log(data);
+				response.end();
+			});
 		}
 	});
 
