@@ -98,7 +98,7 @@ body
 {
 	position: absolute;
 	font-family: "Material Design Icons";
-	font-size: 24px;
+	font-size: 20px;
 	text-align: center;
 	width: 52px;
 }
@@ -106,7 +106,7 @@ body
 .navbar_item .text
 {
 	font-family: "Verdana";
-	font-size: 12px;
+	font-size: 13px;
 	text-align: left;
 	width: 92px;
 	margin-left: 48px;
@@ -165,9 +165,9 @@ body
 .content_entry_home .title_container
 {
 	background-image:
-		linear-gradient(to right, rgba(255, 125, 0, 1) 50%, rgba(0, 0, 0, 0) 100%),
-		linear-gradient(to right, rgba(255, 125, 0, 1) 50%, rgba(0, 0, 0, 0) 100%),
-		linear-gradient(to right, rgba(10, 10, 10, 1) 50%, rgba(0, 0, 0, 0) 100%);
+		linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 125, 0, 1) 30%, rgba(255, 125, 0, 1) 70%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(255, 125, 0, 1) 30%, rgba(255, 125, 0, 1) 70%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(10, 10, 10, 1) 30%, rgba(10, 10, 10, 1) 70%, rgba(0, 0, 0, 0) 100%);
 	background-size:
 		100% 1px,
 		100% 1px,
@@ -188,14 +188,11 @@ body
 .content_entry_home .title_text
 {
 	color: rgba(255, 255, 255, 1);
-	
+
 	font-family: "Courier New";
 	font-size: 18px;
-	font-style: italic;
-	/* letter-spacing: 1.5px; */
+	text-align: center;
 	line-height: 32px;
-	padding-left: 10px;
-	padding-right: 10px;
 }
 
 .text_info
@@ -203,7 +200,7 @@ body
 	color: rgba(255, 255, 255, 1);
 
 	font-family: "Verdana";
-	font-size: 12px;
+	font-size: 13px;
 	line-height: 18px;
 }
 
@@ -217,10 +214,10 @@ body
 	color: rgba(255, 255, 255, 1);
 
 	font-family: "Verdana";
-	font-size: 14px;
+	font-size: 15px;
 	line-height: 22px;
 	font-weight: bold;
-	font-style: italic;
+	font-style: none;
 	padding-top: 25px;
 }
 
@@ -235,26 +232,51 @@ body
 {
 	color: rgba(255, 255, 255, 1);
 
+	display: block;
 	font-family: "Verdana";
-	font-size: 12px;
+	font-size: 13px;
 	line-height: 18px;
+	padding-bottom: 8px;
+}
+
+.contact_form label:not(:first-child)
+{
+	padding-top: 16px;
+}
+
+.contact_form input[type="text"]
+{
+	font-family: "Verdana";
+	font-size: 13px;
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+	box-sizing: border-box;
+	outline: none;
+}
+
+.contact_form textarea
+{
+	font-family: "Verdana";
+	font-size: 13px;
+	line-height: 18px;
+	width: 100%;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	padding-left: 12px;
+	padding-right: 12px;
+	height: 198px;
+	resize: none;
+	box-sizing: border-box;
+	outline: none;
 }
 
 .contact_form .submit
 {
 	text-align: center;
-}
-
-.contact_form input[type="text"]
-{
-	width: 100%;
-}
-
-.contact_form textarea
-{
-	width: 100%;
-	min-height: 120px;
-	resize: none;
+	padding-top: 10px;
 }
 
 .contact_form input[type="submit"]
@@ -266,7 +288,7 @@ body
 {
 	color: rgba(255, 255, 255, 1);
 	
-	font-size: 12px;
+	font-size: 13px;
 	font-family: "Verdana";
 	text-align: center;
 	line-height: 18px;
@@ -280,6 +302,8 @@ body
 {
 	display: none;
 	text-align: center;
+	padding-top: 5px;
+	padding-bottom: 5px;
 }
 
 .footer_jump_to_top button
@@ -289,11 +313,11 @@ body
 	
 	border: none;
 	outline: none;
-	font-size: 12px;
+	font-size: 13px;
 	font-family: "Verdana";
 	text-align: center;
 	text-decoration: none;
-	width: 100px;
+	width: 120px;
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
