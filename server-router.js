@@ -37,7 +37,7 @@ function processRequest(request, response)
 		{
 			if (ROUTES[i][j].method === method && ROUTES[i][j].path === path)
 			{
-				ROUTES[i][j].callback(request, response);
+				ROUTES[i][j].action(request, response);
 				return true;
 			}
 		}

@@ -10,7 +10,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, "/html/home.html", MIME_TYPE.HTML);
 		}
@@ -20,7 +20,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/projects",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, "/html/projects.html", MIME_TYPE.HTML);
 		}
@@ -30,7 +30,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/about",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, "/html/about.html", MIME_TYPE.HTML);
 		}
@@ -40,7 +40,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/contact",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, "/html/contact.html", MIME_TYPE.HTML);
 		}
@@ -50,7 +50,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/css/main.css",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.CSS);
 		}
@@ -60,7 +60,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/js/main.js",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.JS);
 		}
@@ -70,7 +70,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/images/favicon.ico",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.ICO);
 		}
@@ -80,7 +80,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/images/icon.png",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
 		}
@@ -90,7 +90,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/images/logo.png",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
 		}
@@ -100,7 +100,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/images/home/developer-tools.png",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
 		}
@@ -110,7 +110,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/images/home/games.png",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
 		}
@@ -120,7 +120,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/images/home/tutorials.png",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
 		}
@@ -130,7 +130,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/fonts/material-design-icons/regular.eot",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.EOT);
 		}
@@ -140,7 +140,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/fonts/material-design-icons/regular.woff2",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.WOFF2);
 		}
@@ -150,7 +150,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/fonts/material-design-icons/regular.woff",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.WOFF);
 		}
@@ -160,7 +160,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "GET",
 		path: "/fonts/material-design-icons/regular.ttf",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.TTF);
 		}
@@ -170,7 +170,7 @@ module.exports.getRoutes = function getRoutes()
 	{
 		method: "POST",
 		path: "/contact",
-		callback: function(request, response)
+		action: function(request, response)
 		{
 			var data = "";
 
