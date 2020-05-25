@@ -29,7 +29,7 @@ function log(message, type)
 
 module.exports.newline = function newline(number = 1)
 {
-	for (var i = 0; i < number; i++)
+	for (let i = 0; i < number; i++)
 	{
 		console.log();
 	}
@@ -37,8 +37,8 @@ module.exports.newline = function newline(number = 1)
 
 module.exports.divider = function divider(length = 1, char = "-")
 {
-	var output = "";
-	for (var i = 0; i < length; i++)
+	let output = "";
+	for (let i = 0; i < length; i++)
 	{
 		output += char;
 	}

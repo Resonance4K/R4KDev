@@ -29,11 +29,11 @@ function processRequest(request, response)
 	const method = request.method;
 	const path = request.url;
 
-	for (var i = 0; i < ROUTES.length; i++)
+	for (let i = 0; i < ROUTES.length; i++)
 	{
 		if (ROUTES[i] == null || ROUTES[i].length === 0) { continue; }
 
-		for (var j = 0; j < ROUTES[i].length; j++)
+		for (let j = 0; j < ROUTES[i].length; j++)
 		{
 			if (ROUTES[i][j].method === method && ROUTES[i][j].path === path)
 			{
@@ -52,13 +52,13 @@ function logRoutes()
 	LOGGER.divider(40);
 	LOGGER.newline();
 
-	var routesExist = false;
-	for (var i = 0; i < ROUTES.length; i++)
+	let routesExist = false;
+	for (let i = 0; i < ROUTES.length; i++)
 	{
 		if (ROUTES[i] == null || ROUTES[i].length === 0) { continue; }
 
 		routesExist = true;
-		for (var j = 0; j < ROUTES[i].length; j++)
+		for (let j = 0; j < ROUTES[i].length; j++)
 		{
 			LOGGER.info(ROUTES[i][j].method + ": " + ROUTES[i][j].path);
 		}

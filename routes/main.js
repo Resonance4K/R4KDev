@@ -172,7 +172,7 @@ module.exports.getRoutes = function getRoutes()
 		path: "/contact",
 		action: function(request, response)
 		{
-			var data = "";
+			let data = "";
 
 			request.on("data", function(chunk)
 			{
