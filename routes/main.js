@@ -19,6 +19,16 @@ module.exports.getRoutes = function getRoutes()
 	routes.push(
 	{
 		method: "GET",
+		path: "/home",
+		action: function(request, response)
+		{
+			APPLICATION.getResource(response, "/html/home.html", MIME_TYPE.HTML);
+		}
+	});
+
+	routes.push(
+	{
+		method: "GET",
 		path: "/projects",
 		action: function(request, response)
 		{
@@ -172,17 +182,25 @@ module.exports.getRoutes = function getRoutes()
 		path: "/contact",
 		action: function(request, response)
 		{
-			let data = "";
+			let rawData = "";
 
 			request.on("data", function(chunk)
 			{
-				data += chunk.toString();
+				rawData += chunk.toString();
 			});
 
 			request.on("end", function()
 			{
-				console.log(data);
-				response.end();
+				let data = rawData.split("&");
+
+				// Clean up the format of the data by decoding URL encoded characters and performing string replacement operations
+				data[0] = decodeURIComponent(data[0].replace("email=", ""));
+				data[1] = decodeURIComponent(data[1].replace("subject=", "").replace(/\+/g, " "));
+				data[2] = decodeURIComponent(data[2].replace("message=", "").replace(/\+/g, " "));
+
+				// TODO: Implementation of sending contact form data to email address
+
+				APPLICATION.getResource(response, "/html/contact-form-sent.html", MIME_TYPE.HTML);
 			});
 		}
 	});

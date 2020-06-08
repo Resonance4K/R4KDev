@@ -17,6 +17,8 @@ body
 {
 	background-color: rgba(20, 20, 20, 1);
 	
+	font-family: sans-serif;
+	font-size: 13px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -53,6 +55,22 @@ body
 	margin-right: auto;
 	margin-top: 25px;
 	margin-bottom: 25px;
+}
+
+.container_contact_form_sent
+{
+	background-color: rgba(10, 10, 10, 1);
+
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	text-align: center;
 }
 
 .container_footer
@@ -105,7 +123,8 @@ body
 
 .navbar_item .text
 {
-	font-family: "Verdana";
+	/* Font family and font size properties are explicitly set for them to be applied to the navigation bar item */
+	font-family: sans-serif;
 	font-size: 13px;
 	text-align: left;
 	width: 92px;
@@ -189,8 +208,7 @@ body
 {
 	color: rgba(255, 255, 255, 1);
 
-	font-family: "Courier New";
-	font-size: 18px;
+	font-size: 15px;
 	text-align: center;
 	line-height: 32px;
 }
@@ -199,8 +217,6 @@ body
 {
 	color: rgba(255, 255, 255, 1);
 
-	font-family: "Verdana";
-	font-size: 13px;
 	line-height: 18px;
 }
 
@@ -213,11 +229,14 @@ body
 {
 	color: rgba(255, 255, 255, 1);
 
-	font-family: "Verdana";
 	font-size: 15px;
 	line-height: 22px;
 	font-weight: bold;
 	font-style: none;
+}
+
+.text_heading_info:not(:first-child)
+{
 	padding-top: 25px;
 }
 
@@ -233,8 +252,6 @@ body
 	color: rgba(255, 255, 255, 1);
 
 	display: block;
-	font-family: "Verdana";
-	font-size: 13px;
 	line-height: 18px;
 	padding-bottom: 8px;
 }
@@ -244,39 +261,36 @@ body
 	padding-top: 16px;
 }
 
-.contact_form input[type="text"]
+.contact_form input[type="text"], textarea
 {
-	font-family: "Verdana";
-	font-size: 13px;
-	width: 100%;
-	padding-top: 8px;
-	padding-bottom: 8px;
-	padding-left: 12px;
-	padding-right: 12px;
-	box-sizing: border-box;
-	outline: none;
-}
-
-.contact_form textarea
-{
-	font-family: "Verdana";
-	font-size: 13px;
 	line-height: 18px;
 	width: 100%;
 	padding-top: 8px;
 	padding-bottom: 8px;
 	padding-left: 12px;
 	padding-right: 12px;
-	height: 198px;
-	resize: none;
+	border: none;
 	box-sizing: border-box;
 	outline: none;
+}
+
+.contact_form textarea
+{
+	height: 198px;
+	resize: none;
+}
+
+.contact_form input[type="text"]:focus, textarea:focus
+{
+	outline-style: solid;
+	outline-color: rgba(255, 125, 0, 1);
+	outline-width: 2px;
 }
 
 .contact_form .submit
 {
 	text-align: center;
-	padding-top: 10px;
+	padding-top: 12px;
 }
 
 .contact_form input[type="submit"]
@@ -284,12 +298,18 @@ body
 	width: 150px;
 }
 
+.contact_form .email_error, .subject_error, .message_error
+{
+	color: rgba(255, 125, 0, 1);
+
+	font-style: italic;
+	padding-top: 8px;
+}
+
 .footer_copyright
 {
 	color: rgba(255, 255, 255, 1);
 	
-	font-size: 13px;
-	font-family: "Verdana";
 	text-align: center;
 	line-height: 18px;
 	margin-left: auto;
@@ -306,15 +326,13 @@ body
 	padding-bottom: 5px;
 }
 
-.footer_jump_to_top button
+.footer_jump_to_top button[type="button"]
 {
 	background-color: rgba(0, 0, 0, 0);
 	color: rgba(255, 255, 255, 1);
 	
 	border: none;
 	outline: none;
-	font-size: 13px;
-	font-family: "Verdana";
 	text-align: center;
 	text-decoration: none;
 	width: 120px;
@@ -323,6 +341,45 @@ body
 }
 
 .footer_jump_to_top button:hover
+{
+	background-color: rgba(100, 100, 100, 1);
+
+	cursor: pointer;
+}
+
+/* Adds an outline to the button to replace the standard behaviour and improve consistency with other button like elements */
+.footer_jump_to_top button[type="button"]:active, .footer_jump_to_top button[type="button"]:focus
+{
+	outline-style: dotted;
+	outline-width: 1px;
+}
+
+/* Removes the default border within the button surrounding the text when it is in the ACTIVE and FOCUS states */
+.footer_jump_to_top button[type="button"]::-moz-focus-inner
+{
+	border: none;
+}
+
+.home_button
+{
+	margin-top: 20px;
+}
+
+.home_button a:link
+{
+	color: rgba(255, 255, 255, 1);
+
+	display: block;
+	width: 120px;
+	text-decoration: none;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.home_button a:hover
 {
 	background-color: rgba(100, 100, 100, 1);
 }

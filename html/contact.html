@@ -68,12 +68,15 @@
 			
 				<label> Email Address: </label>
 				<input type="text" name="email" value="" />
+				<div id="contact_form_email_error" class="email_error"></div>
 
 				<label> Subject: </label>
 				<input type="text" name="subject" value="" />
+				<div id="contact_form_subject_error" class="subject_error"></div>
 
 				<label> Message: </label>
 				<textarea name="message"></textarea>
+				<div id="contact_form_message_error" class="message_error"></div>
 
 				<div class="submit">
 					<input type="button" value="Send Message" onclick="processContactForm()" />
@@ -88,7 +91,7 @@
 		<div class="container_footer border_section">
 		
 			<div class="footer_copyright">
-				Copyright &#169; Resonance4K, 2019.<br />All Rights Reserved.
+				Copyright &#169; Resonance4K, <span id="copyright_year"></span>.
 			</div>
 		
 		</div>
