@@ -16,9 +16,11 @@
 body
 {
 	background-color: rgba(20, 20, 20, 1);
+	color: rgba(255, 255, 255, 1);
 	
 	font-family: sans-serif;
 	font-size: 13px;
+	line-height: 18px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -44,8 +46,10 @@ body
 {
 	background-color: rgba(10, 10, 10, 1);
 	
-	/* To remove whitespace between elements with display = inline-block */
+	/* To remove whitespace between the navigation bar items with inline block display */
 	font-size: 0px;
+	/* To remove redundant vertical space caused by the line height property already being set to a non-zero value */
+	line-height: 0px;
 }
 
 .container_content
@@ -162,20 +166,18 @@ body
 	background-color: rgba(50, 50, 50, 1);
 }
 
-.content_entry_home
+.content_entry_home, .content_entry_section_project
 {
 	position: relative;
 }
 
-.content_entry_home:not(:last-child)
+.content_entry_home:not(:last-child), .content_entry_content_project:not(:last-child)
 {
 	margin-bottom: 25px;
 }
 
 .content_entry_home img
 {
-	color: rgba(255, 255, 255, 1);
-	
 	display: block;
 	max-width: 100%;
 	height: auto;
@@ -199,25 +201,71 @@ body
 
 	position: absolute;
 	top: 0px;
-	left: 0px;
+	width: 100%;
+	height: auto;
+}
+
+.content_entry_section_project .title_container
+{
+	background-image:
+		linear-gradient(to right, rgba(255, 125, 0, 1) 50%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to right, rgba(255, 125, 0, 1) 50%, rgba(0, 0, 0, 0) 100%),
+		linear-gradient(to right, rgba(10, 10, 10, 1) 50%, rgba(0, 0, 0, 0) 100%);
+	background-size:
+		100% 1px,
+		100% 1px,
+		100% 100%;
+	background-position:
+		0% 0%,
+		0% 100%,
+		0% 100%;
+	background-repeat: no-repeat;
+
 	width: 100%;
 	height: auto;
 }
 
 .content_entry_home .title_text
 {
-	color: rgba(255, 255, 255, 1);
-
 	font-size: 15px;
 	text-align: center;
 	line-height: 32px;
 }
 
-.text_info
+.content_entry_section_project .title_text
+{
+	font-size: 15px;
+	line-height: 32px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.content_entry_content_project .item
+{
+	line-height: 40px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.content_entry_content_project .item:hover
+{
+	background-color: rgba(100, 100, 100, 1);
+}
+
+.content_entry_content_project .item a
 {
 	color: rgba(255, 255, 255, 1);
+}
 
-	line-height: 18px;
+.content_entry_content_project .item .extra_info
+{
+	float: right;
+}
+
+/* Used for the normal text when no items are available in the content area */
+.content_entry_content_project .text_info
+{
+	padding-top: 12px;
 }
 
 .text_info:not(:first-child)
@@ -227,8 +275,6 @@ body
 
 .text_heading_info
 {
-	color: rgba(255, 255, 255, 1);
-
 	font-size: 15px;
 	line-height: 22px;
 	font-weight: bold;
@@ -249,10 +295,7 @@ body
 
 .contact_form label
 {
-	color: rgba(255, 255, 255, 1);
-
 	display: block;
-	line-height: 18px;
 	padding-bottom: 8px;
 }
 
@@ -261,9 +304,8 @@ body
 	padding-top: 16px;
 }
 
-.contact_form input[type="text"], textarea
+.contact_form input[type="text"], .contact_form textarea
 {
-	line-height: 18px;
 	width: 100%;
 	padding-top: 8px;
 	padding-bottom: 8px;
@@ -280,7 +322,7 @@ body
 	resize: none;
 }
 
-.contact_form input[type="text"]:focus, textarea:focus
+.contact_form input[type="text"]:focus, .contact_form textarea:focus
 {
 	outline-style: solid;
 	outline-color: rgba(255, 125, 0, 1);
@@ -298,7 +340,7 @@ body
 	width: 150px;
 }
 
-.contact_form .email_error, .subject_error, .message_error
+.contact_form .email_error, .contact_form .subject_error, .contact_form .message_error
 {
 	color: rgba(255, 125, 0, 1);
 
@@ -308,10 +350,7 @@ body
 
 .footer_copyright
 {
-	color: rgba(255, 255, 255, 1);
-	
 	text-align: center;
-	line-height: 18px;
 	margin-left: auto;
 	margin-right: auto;
 	padding-top: 8px;
@@ -340,7 +379,7 @@ body
 	padding-bottom: 10px;
 }
 
-.footer_jump_to_top button:hover
+.footer_jump_to_top button[type="button"]:hover
 {
 	background-color: rgba(100, 100, 100, 1);
 
@@ -360,7 +399,7 @@ body
 	border: none;
 }
 
-.home_button
+.container_contact_form_sent .home_button
 {
 	margin-top: 20px;
 }
@@ -370,11 +409,11 @@ body
 	color: rgba(255, 255, 255, 1);
 
 	display: block;
-	width: 120px;
+	width: 128px;
+	height: 32px;
+	line-height: 32px;
 	text-decoration: none;
 	text-align: center;
-	padding-top: 8px;
-	padding-bottom: 8px;
 	margin-left: auto;
 	margin-right: auto;
 }

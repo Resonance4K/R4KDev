@@ -45,11 +45,6 @@ function isWholePageVisible()
 	return (totalHeight <= height ? true : false);
 }
 
-function jumpToElement(elementID)
-{
-	document.getElementById(elementID).scrollIntoView(true);
-}
-
 function processContactForm()
 {
 	const form = document.getElementById("contact_form");
