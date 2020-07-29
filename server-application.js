@@ -6,9 +6,10 @@ const FS = require("fs");
 
 const ERRORS =
 {
-	ROUTE_NOT_DEFINED: { code: 404, message: "Route not defined" },
-	FILE_NOT_FOUND: { code: 404, message: "File not found" },
-	UNDEFINED: { code: 404, message: "Undefined error" }
+	ROUTE_NOT_DEFINED: { code: 404, message: "Route is not defined" },
+	FILE_NOT_FOUND:    { code: 404, message: "File could not be found" },
+	FILE_NOT_READ:     { code: 500, message: "File could not be read" },
+	UNDEFINED:         { code: 500, message: "Undefined error" }
 };
 
 module.exports.handleRequest = function handleRequest(request, response)
@@ -30,7 +31,15 @@ module.exports.getResource = function getResource(response, path, type = "text/p
 	{
 		if (error)
 		{
-			writeError(response, null, path, ERRORS.FILE_NOT_FOUND);
+			// Error code "ENOENT" is returned if the resource specified by the filepath could not be found
+			if (error.code === "ENOENT")
+			{
+				writeError(response, null, path, ERRORS.FILE_NOT_FOUND);
+			}
+			else
+			{
+				writeError(response, null, path, ERRORS.FILE_NOT_READ);
+			}
 		}
 		else
 		{

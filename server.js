@@ -7,17 +7,23 @@ const HTTP = require("http");
 const HOSTNAME = "127.0.0.1";
 const PORT = 3000;
 
-const SERVER = HTTP.createServer(function(request, response)
+const SERVER = HTTP.createServer();
+SERVER.on("request", requestListener);
+SERVER.listen(PORT, HOSTNAME, serverListener);
+
+// Triggered when a request is sent to the server
+function requestListener(request, response)
 {
 	APPLICATION.handleRequest(request, response);
-});
+}
 
-SERVER.listen(PORT, HOSTNAME, function()
+// Triggered when the server begins listening on the specified hostname and port
+function serverListener()
 {
 	logRunningMessage();
 	logProperties();
 	logListeningMessage();
-});
+}
 
 function logRunningMessage()
 {

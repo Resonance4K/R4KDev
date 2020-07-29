@@ -10,13 +10,12 @@ const FILES =
 const ROUTES = [];
 
 populateRoutes();
+logRoutes();
 
 function populateRoutes()
 {
 	ROUTES.push(FILES.MAIN.getRoutes());
 	ROUTES.push(FILES.PROJECT.getRoutes());
-
-	logRoutes();
 }
 
 module.exports.handleRequest = function handleRequest(request, response)
