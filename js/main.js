@@ -2,20 +2,33 @@
 window.onload = function()
 {
 	generateCopyrightYear();
+
+	updateElementProjectFooterHorizontalRule();
 	updateElementJumpToTop();
 }
 
 window.onresize = function()
 {
+	updateElementProjectFooterHorizontalRule();
 	updateElementJumpToTop();
 }
 
 function generateCopyrightYear()
 {
-	const releaseYear = 2020;
-	const currentYear = new Date().getFullYear();
+	const copyrightElement = document.getElementById("copyright_year");
 
-	document.getElementById("copyright_year").textContent = (releaseYear === currentYear ? releaseYear : releaseYear + " - " + currentYear);
+	if (copyrightElement != null)
+	{
+		const releaseYear = 2020;
+		const currentYear = new Date().getFullYear();
+
+		copyrightElement.textContent = (releaseYear === currentYear ? releaseYear : releaseYear + " - " + currentYear);
+	}
+}
+
+function updateElementProjectFooterHorizontalRule()
+{
+	toggleVisibilityBasedOnPageSize("footer_project_hr");
 }
 
 function jumpToTop()
@@ -25,15 +38,23 @@ function jumpToTop()
 
 function updateElementJumpToTop()
 {
-	const element = document.getElementById("footer_jump_to_top");
-	
-	if (isWholePageVisible())
+	toggleVisibilityBasedOnPageSize("footer_jump_to_top");
+}
+
+function toggleVisibilityBasedOnPageSize(elementId)
+{
+	const element = document.getElementById(elementId);
+
+	if (element != null)
 	{
-		element.style.display = "none";
-	}
-	else
-	{
-		element.style.display = "block";
+		if (isWholePageVisible())
+		{
+			element.style.display = "none";
+		}
+		else
+		{
+			element.style.display = "block";
+		}
 	}
 }
 
