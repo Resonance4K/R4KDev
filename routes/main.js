@@ -1,6 +1,6 @@
 
-const APPLICATION = require("../server-application");
-const MIME_TYPE = require("../mime-types");
+const APPLICATION = require("../server/server-application");
+const MIME_TYPE = require("../server/mime-types");
 
 module.exports.getRoutes = function getRoutes()
 {

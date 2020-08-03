@@ -3,8 +3,8 @@ const LOGGER = require("./server-logger");
 
 const FILES =
 {
-	MAIN: require("./routes/main"),
-	PROJECT: require("./routes/project")
+	MAIN: require("../routes/main"),
+	PROJECT: require("../routes/project")
 };
 
 const ROUTES = [];
