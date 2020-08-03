@@ -52,6 +52,13 @@ body
 	line-height: 0px;
 }
 
+.container_project_header
+{
+	background-color: rgba(10, 10, 10, 1);
+
+	margin-top: 25px;
+}
+
 .container_content
 {
 	max-width: 1024px;
@@ -166,6 +173,64 @@ body
 	background-color: rgba(50, 50, 50, 1);
 }
 
+.project_title
+{
+	font-weight: bold;
+	font-size: 19px;
+	line-height: 42px;
+	text-align: center;
+}
+
+.project_information
+{
+	display: inline-block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	line-height: 0px;
+	vertical-align: top;
+}
+
+.project_screenshots
+{
+	width: 676px;
+	float: right;
+	padding-left: 11px;
+	box-sizing: border-box;
+}
+
+.project_details
+{
+	width: 348px;
+	float: left;
+	padding-right: 8px;
+	line-height: 18px;
+	box-sizing: border-box;
+}
+
+.project_details .item
+{
+	display: inline-block;
+	width: 100%;
+}
+
+.project_details .item:not(:first-child)
+{
+	padding-top: 10px;
+}
+
+.project_details .item .property
+{
+	width: 45%;
+	float: left;
+}
+
+.project_details .item .value
+{
+	width: 55%;
+	float: right;
+	padding-top: 0px;
+}
+
 .content_entry_home, .content_entry_section_project
 {
 	position: relative;
@@ -252,11 +317,6 @@ body
 	background-color: rgba(100, 100, 100, 1);
 }
 
-.content_entry_content_project .item a
-{
-	color: rgba(255, 255, 255, 1);
-}
-
 .content_entry_content_project .item .extra_info
 {
 	float: right;
@@ -278,12 +338,16 @@ body
 	font-size: 15px;
 	line-height: 22px;
 	font-weight: bold;
-	font-style: none;
 }
 
 .text_heading_info:not(:first-child)
 {
 	padding-top: 25px;
+}
+
+.project_heading_info_first
+{
+	padding-top: 10px;
 }
 
 .contact_form
@@ -399,28 +463,67 @@ body
 	border: none;
 }
 
-.container_contact_form_sent .home_button
+.container_contact_form_sent .back_button
 {
 	margin-top: 20px;
 }
 
-.home_button a:link
+.container_project_header .back_button
 {
-	color: rgba(255, 255, 255, 1);
+	position: absolute;
+	float: left;
+	padding-left: 16px;
+}
 
-	display: block;
+.container_contact_form_sent .back_button a
+{
 	width: 128px;
 	height: 32px;
 	line-height: 32px;
+}
+
+.container_project_header .back_button a
+{
+	width: 92px;
+	height: 42px;
+	line-height: 42px;
+}
+
+.back_button a
+{
+	display: block;
 	text-decoration: none;
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
 }
 
-.home_button a:hover
+.back_button a:hover
 {
 	background-color: rgba(100, 100, 100, 1);
+}
+
+hr
+{
+	color: rgba(100, 100, 100, 1);
+
+	border-top-style: solid;
+	border-bottom: none;
+	border-left: none;
+	border-right: none;
+	border-width: 1px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+}
+
+hr.orange_div
+{
+	color: rgba(255, 125, 0, 1);
+}
+
+a
+{
+	color: rgba(255, 255, 255, 1);
 }
 
 @media only screen and (max-width: 1023px)
