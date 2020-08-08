@@ -26,5 +26,25 @@ module.exports.getRoutes = function getRoutes()
 		}
 	});
 
+	routes.push(
+		{
+			method: "GET",
+			path: "/projects/dev/DynaKey",
+			action: function(request, response)
+			{
+				APPLICATION.getResource(response, "/html/projects/dev/dynakey.html", MIME_TYPE.HTML);
+			}
+		});
+
+		routes.push(
+		{
+			method: "GET",
+			path: "/images/projects/dev/dynakey-1.png",
+			action: function(request, response)
+			{
+				APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
+			}
+		});
+
 	return routes;
 }
