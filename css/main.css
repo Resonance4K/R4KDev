@@ -163,7 +163,8 @@ body
 	text-decoration: none;
 }
 
-.navbar_item:hover, .navbar_item.active:hover
+.navbar_item:hover,
+.navbar_item.active:hover
 {
 	background-color: rgba(100, 100, 100, 1);
 }
@@ -231,12 +232,14 @@ body
 	padding-top: 0px;
 }
 
-.content_entry_home, .content_entry_section_project
+.content_entry_home,
+.content_entry_section_project
 {
 	position: relative;
 }
 
-.content_entry_home:not(:last-child), .content_entry_content_project:not(:last-child)
+.content_entry_home:not(:last-child),
+.content_entry_content_project:not(:last-child)
 {
 	margin-bottom: 25px;
 }
@@ -368,7 +371,8 @@ body
 	padding-top: 16px;
 }
 
-.contact_form input[type="text"], .contact_form textarea
+.contact_form input[type="text"],
+.contact_form textarea
 {
 	width: 100%;
 	padding-top: 8px;
@@ -386,7 +390,8 @@ body
 	resize: none;
 }
 
-.contact_form input[type="text"]:focus, .contact_form textarea:focus
+.contact_form input[type="text"]:focus,
+.contact_form textarea:focus
 {
 	outline-style: solid;
 	outline-color: rgba(255, 125, 0, 1);
@@ -404,7 +409,9 @@ body
 	width: 150px;
 }
 
-.contact_form .email_error, .contact_form .subject_error, .contact_form .message_error
+.contact_form .email_error,
+.contact_form .subject_error,
+.contact_form .message_error
 {
 	color: rgba(255, 125, 0, 1);
 
@@ -451,7 +458,8 @@ body
 }
 
 /* Adds an outline to the button to replace the standard behaviour and improve consistency with other button like elements */
-.footer_jump_to_top button[type="button"]:active, .footer_jump_to_top button[type="button"]:focus
+.footer_jump_to_top button[type="button"]:active,
+.footer_jump_to_top button[type="button"]:focus
 {
 	outline-style: dotted;
 	outline-width: 1px;
