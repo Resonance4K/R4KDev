@@ -9,17 +9,17 @@ module.exports.getRoutes = function getRoutes()
 	routes.push(
 	{
 		method: "GET",
-		path: "/projects/dev/SFR",
+		path: "/projects/devtools/SFR",
 		action: function(request, response)
 		{
-			APPLICATION.getResource(response, "/html/projects/dev/sfr.html", MIME_TYPE.HTML);
+			APPLICATION.getResource(response, "/html/projects/devtools/sfr.html", MIME_TYPE.HTML);
 		}
 	});
 
 	routes.push(
 	{
 		method: "GET",
-		path: "/images/projects/dev/sfr-1.png",
+		path: "/images/projects/devtools/sfr-1.png",
 		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
@@ -29,17 +29,17 @@ module.exports.getRoutes = function getRoutes()
 	routes.push(
 	{
 		method: "GET",
-		path: "/projects/dev/DynaKey",
+		path: "/projects/devtools/DynaKey",
 		action: function(request, response)
 		{
-			APPLICATION.getResource(response, "/html/projects/dev/dynakey.html", MIME_TYPE.HTML);
+			APPLICATION.getResource(response, "/html/projects/devtools/dynakey.html", MIME_TYPE.HTML);
 		}
 	});
 
 	routes.push(
 	{
 		method: "GET",
-		path: "/images/projects/dev/dynakey-1.png",
+		path: "/images/projects/devtools/dynakey-1.png",
 		action: function(request, response)
 		{
 			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
