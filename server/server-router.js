@@ -1,21 +1,32 @@
 
 const LOGGER = require("./server-logger");
 
-const FILES =
+const FILES = getFiles();
+module.exports.FILES = FILES;
+
+const ROUTES = getRoutes();
+
+function getFiles()
 {
-	MAIN: require("../routes/main"),
-	PROJECT: require("../routes/project")
-};
+	const files =
+	{
+		MAINTENANCE: require("../routes/maintenance"),
+		MAIN: require("../routes/main"),
+		PROJECT: require("../routes/project")
+	};
 
-const ROUTES = [];
+	return files;
+}
 
-populateRoutes();
-logRoutes();
-
-function populateRoutes()
+function getRoutes()
 {
-	ROUTES.push(FILES.MAIN.getRoutes());
-	ROUTES.push(FILES.PROJECT.getRoutes());
+	const routes = [];
+
+	// Routes from the MAINTENANCE file should not be included in the array
+	routes.push(FILES.MAIN.getRoutes());
+	routes.push(FILES.PROJECT.getRoutes());
+
+	return routes;
 }
 
 module.exports.handleRequest = function handleRequest(request, response)
@@ -59,15 +70,18 @@ function logRoutes()
 		routesExist = true;
 		for (let j = 0; j < ROUTES[i].length; j++)
 		{
-			LOGGER.info(ROUTES[i][j].method + ": " + ROUTES[i][j].path);
+			LOGGER.plain(ROUTES[i][j].method + ": " + ROUTES[i][j].path);
 		}
+	}
+
+	if (routesExist === false)
+	{
+		LOGGER.plain("NO ROUTES DEFINED");
 	}
 
 	LOGGER.newline();
 	LOGGER.divider(40);
-
-	if (routesExist === true)
-	{
-		LOGGER.newline(2);
-	}
+	LOGGER.newline();
 }
+
+logRoutes();

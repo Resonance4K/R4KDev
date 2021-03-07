@@ -1,6 +1,8 @@
 
 const LOGGER = require("./server-logger");
 const ROUTER = require("./server-router");
+const WEBSITE_CONFIG = require("../config/website");
+const MIME_TYPE = require("../server/mime-types");
 
 const FS = require("fs");
 
@@ -23,9 +25,9 @@ module.exports.handleRequest = function handleRequest(request, response)
 	}
 }
 
-module.exports.getResource = function getResource(response, path, type = "text/plain")
+module.exports.getResource = function getResource(response, path, type = MIME_TYPE.TXT)
 {
-	const filepath = "." + path;
+	const filepath = getFilepath(path, type);
 
 	FS.readFile(filepath, null, function(error, data)
 	{
@@ -34,11 +36,11 @@ module.exports.getResource = function getResource(response, path, type = "text/p
 			// Error code "ENOENT" is returned if the resource specified by the filepath could not be found
 			if (error.code === "ENOENT")
 			{
-				writeError(response, null, path, ERRORS.FILE_NOT_FOUND);
+				writeError(response, null, filepath, ERRORS.FILE_NOT_FOUND);
 			}
 			else
 			{
-				writeError(response, null, path, ERRORS.FILE_NOT_READ);
+				writeError(response, null, filepath, ERRORS.FILE_NOT_READ);
 			}
 		}
 		else
@@ -46,6 +48,16 @@ module.exports.getResource = function getResource(response, path, type = "text/p
 			writeData(response, data, type);
 		}
 	});
+}
+
+function getFilepath(path, type)
+{
+	if (WEBSITE_CONFIG.isUnderMaintenance === true && type === MIME_TYPE.HTML)
+	{
+		path = ROUTER.FILES.MAINTENANCE.getRoutes().maintenanceNotice;
+	}
+
+	return "." + path;
 }
 
 function writeError(response, method, path, type = ERRORS.UNDEFINED)

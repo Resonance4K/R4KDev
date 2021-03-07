@@ -1,6 +1,7 @@
 
 const LOGGER = require("./server-logger");
 const APPLICATION = require("./server-application");
+const WEBSITE_CONFIG = require("../config/website");
 
 const HTTP = require("http");
 
@@ -22,6 +23,7 @@ function serverListener()
 {
 	logRunningMessage();
 	logProperties();
+	logWebsiteConfiguration();
 	logListeningMessage();
 }
 
@@ -39,8 +41,15 @@ function logProperties()
 	LOGGER.newline();
 }
 
+function logWebsiteConfiguration()
+{
+	LOGGER.info("Displaying Website Configuration...");
+	LOGGER.info("Maintenance: " + WEBSITE_CONFIG.isUnderMaintenance);
+	LOGGER.newline();
+}
+
 function logListeningMessage()
 {
 	LOGGER.info("Server is listening for requests...");
-	LOGGER.newline(2);
+	LOGGER.newline();
 }
