@@ -119,6 +119,16 @@ module.exports.getRoutes = function getRoutes()
 	routes.push(
 	{
 		method: "GET",
+		path: "/images/home/general-software.png",
+		action: function(request, response)
+		{
+			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
+		}
+	});
+
+	routes.push(
+	{
+		method: "GET",
 		path: "/images/home/games.png",
 		action: function(request, response)
 		{

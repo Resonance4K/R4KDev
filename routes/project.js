@@ -46,5 +46,25 @@ module.exports.getRoutes = function getRoutes()
 		}
 	});
 
+	routes.push(
+	{
+		method: "GET",
+		path: "/projects/software/CinnamonThemes",
+		action: function(request, response)
+		{
+			APPLICATION.getResource(response, "/html/projects/software/cinnamon-themes.html", MIME_TYPE.HTML);
+		}
+	});
+
+	routes.push(
+	{
+		method: "GET",
+		path: "/images/projects/software/cinnamon-themes-1.png",
+		action: function(request, response)
+		{
+			APPLICATION.getResource(response, this.path, MIME_TYPE.PNG);
+		}
+	});
+
 	return routes;
 }
