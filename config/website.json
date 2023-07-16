@@ -1,4 +1,9 @@
 
 {
-	"isUnderMaintenance": false
+	"isUnderMaintenance": false,
+	"maintenanceDetails":
+	{
+		"duration": 60,
+		"duration_unit": "minutes"
+	}
 }

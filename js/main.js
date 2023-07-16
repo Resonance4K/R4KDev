@@ -19,7 +19,7 @@ function generateCopyrightYear()
 
 	if (copyrightElement != null)
 	{
-		const releaseYear = 2020;
+		const releaseYear = 2023;
 		const currentYear = new Date().getFullYear();
 
 		copyrightElement.textContent = (releaseYear === currentYear ? releaseYear : releaseYear + " - " + currentYear);
@@ -63,7 +63,7 @@ function isWholePageVisible()
 	const height = document.documentElement.clientHeight;
 	const totalHeight = document.documentElement.offsetHeight;
 	
-	return (totalHeight <= height ? true : false);
+	return (totalHeight <= height);
 }
 
 function processContactForm()
@@ -102,9 +102,9 @@ function validateContactFormEmail(email)
 		emailErrorElement.textContent = "ERROR: Email is empty!";
 		return false;
 	}
-	else if (emailValue.length > 128)
+	else if (emailValue.length > 40)
 	{
-		emailErrorElement.textContent = "ERROR: Email is too long!";
+		emailErrorElement.textContent = "ERROR: Email is too long! Max of 40 characters allowed";
 		return false;
 	}
 	else if (lastAtSignIndex === -1 || lastDotIndex === -1 || lastDotIndex < lastAtSignIndex || lastAtSignIndex === 0 || lastDotIndex === lastAtSignIndex + 1)
@@ -131,7 +131,7 @@ function validateContactFormSubject(subject)
 	}
 	else if (subjectValue.length > 128)
 	{
-		subjectErrorElement.textContent = "ERROR: Subject is too long!";
+		subjectErrorElement.textContent = "ERROR: Subject is too long! Max of 128 characters allowed";
 		return false;
 	}
 	else
@@ -153,7 +153,7 @@ function validateContactFormMessage(message)
 	}
 	else if (messageValue.length > 8192)
 	{
-		messageErrorElement.textContent = "ERROR: Message is too long!";
+		messageErrorElement.textContent = "ERROR: Message is too long! Max of 8192 characters allowed";
 		return false;
 	}
 	else

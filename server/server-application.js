@@ -1,7 +1,6 @@
 
 const LOGGER = require("./server-logger");
 const ROUTER = require("./server-router");
-const WEBSITE_CONFIG = require("../config/website");
 const MIME_TYPE = require("../server/mime-types");
 
 const FS = require("fs");
@@ -16,7 +15,7 @@ const ERRORS =
 
 module.exports.handleRequest = function handleRequest(request, response)
 {
-	if (ROUTER.handleRequest(request, response) === false)
+	if (!ROUTER.handleRequest(request, response))
 	{
 		const method = request.method;
 		const path = request.url;
@@ -27,7 +26,7 @@ module.exports.handleRequest = function handleRequest(request, response)
 
 module.exports.getResource = function getResource(response, path, type = MIME_TYPE.TXT)
 {
-	const filepath = getFilepath(path, type);
+	const filepath = "." + path;
 
 	FS.readFile(filepath, null, function(error, data)
 	{
@@ -48,16 +47,6 @@ module.exports.getResource = function getResource(response, path, type = MIME_TY
 			writeData(response, data, type);
 		}
 	});
-}
-
-function getFilepath(path, type)
-{
-	if (WEBSITE_CONFIG.isUnderMaintenance === true && type === MIME_TYPE.HTML)
-	{
-		path = ROUTER.FILES.MAINTENANCE.getRoutes().maintenanceNotice;
-	}
-
-	return "." + path;
 }
 
 function writeError(response, method, path, type = ERRORS.UNDEFINED)

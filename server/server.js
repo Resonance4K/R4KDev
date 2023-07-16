@@ -45,6 +45,7 @@ function logWebsiteConfiguration()
 {
 	LOGGER.info("Displaying Website Configuration...");
 	LOGGER.info("Maintenance: " + WEBSITE_CONFIG.isUnderMaintenance);
+	LOGGER.info("Maintenance Duration: " + WEBSITE_CONFIG.maintenanceDetails.duration + " " + WEBSITE_CONFIG.maintenanceDetails.duration_unit);
 	LOGGER.newline();
 }
 
