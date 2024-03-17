@@ -3,14 +3,14 @@ window.onload = function()
 {
 	generateCopyrightYear();
 
-	updateElementProjectFooterHorizontalRule();
-	updateElementJumpToTop();
+	toggleVisibiltyProjectItemGroups();
+
+	updateElementsFooter();
 }
 
 window.onresize = function()
 {
-	updateElementProjectFooterHorizontalRule();
-	updateElementJumpToTop();
+	updateElementsFooter();
 }
 
 function generateCopyrightYear()
@@ -19,21 +19,22 @@ function generateCopyrightYear()
 
 	if (copyrightElement != null)
 	{
-		const releaseYear = 2023;
+		const releaseYear = 2024;
 		const currentYear = new Date().getFullYear();
 
 		copyrightElement.textContent = (releaseYear === currentYear ? releaseYear : releaseYear + " - " + currentYear);
 	}
 }
 
+function updateElementsFooter()
+{
+	updateElementProjectFooterHorizontalRule();
+	updateElementJumpToTop();
+}
+
 function updateElementProjectFooterHorizontalRule()
 {
 	toggleVisibilityBasedOnPageSize("footer_project_hr");
-}
-
-function jumpToTop()
-{
-	document.documentElement.scrollTop = 0;
 }
 
 function updateElementJumpToTop()
@@ -64,6 +65,81 @@ function isWholePageVisible()
 	const totalHeight = document.documentElement.offsetHeight;
 	
 	return (totalHeight <= height);
+}
+
+function jumpToTop()
+{
+	document.documentElement.scrollTop = 0;
+}
+
+// Example of a font icon is the Material Design Icons HTML representation
+function convertFontIconIntoCodePointString(fontIcon)
+{
+	// Convert the hexadecimal code point at value of base 16 representation into a plain text string
+	return fontIcon.trim().codePointAt(0).toString(16);
+}
+
+// Example of a entity number is &#xe88a; (home icon from Material Design Icon set)
+function convertEntityNumberIntoCodePointString(entityNumber)
+{
+	return entityNumber.replaceAll("&#x", "").replaceAll("&#", "").replaceAll(";", "");
+}
+
+function toggleVisibiltyProjectItemGroups()
+{
+	toggleVisibilityProjectItemGroup("gaming_s2dengine_group_items");
+	toggleVisibilityProjectItemGroup("gaming_quake3arena_group_items");
+}
+
+function toggleVisibilityProjectItemGroup(groupElementId)
+{
+	const groupElement = document.getElementById(groupElementId);
+
+	if (groupElement != null)
+	{
+		const groupElementItems = Array.from(groupElement.getElementsByClassName("item"));
+
+		let visible = true;
+
+		const groupItem = groupElementItems[0].getElementsByClassName("extra_info_group")[0];
+		if (convertFontIconIntoCodePointString(groupItem.textContent) === convertEntityNumberIntoCodePointString("&#xe5cf;"))
+		{
+			visible = false;
+		}
+
+		for (let i = 1; i < groupElementItems.length; i++)
+		{
+			groupElementItems[i].style.display = (visible ? "block" : "none");
+
+			// Add minor margin on the bottom of the last item in the grouping to more clearly separate from other groups or standalone items
+			if (i === groupElementItems.length - 1 && visible)
+			{
+				groupElementItems[i].style.marginBottom = "10px";
+			}
+		}
+	}
+}
+
+function toggleExpandProjectItemGroup(element)
+{
+	if (element != null)
+	{
+		const itemGroupIconElement = element.getElementsByClassName("extra_info_group")[0];
+
+		// Expand More icon code = &#xe5cf;
+		// Expand Less icon code = &#xe5ce;
+		if (convertFontIconIntoCodePointString(itemGroupIconElement.textContent) === convertEntityNumberIntoCodePointString("&#xe5cf;"))
+		{
+			itemGroupIconElement.innerHTML = "&#xe5ce;";
+		}
+		else
+		{
+			itemGroupIconElement.innerHTML = "&#xe5cf;";
+		}
+
+		toggleVisibilityProjectItemGroup(element.id + "_items");
+		updateElementsFooter();
+	}
 }
 
 function processContactForm()

@@ -303,6 +303,7 @@ body
 	font-size: 15px;
 	text-align: center;
 	line-height: 32px;
+	font-weight: normal;
 }
 
 .content_entry_section_project .title_text
@@ -311,6 +312,7 @@ body
 	line-height: 32px;
 	padding-left: 20px;
 	padding-right: 20px;
+	font-weight: normal;
 }
 
 .content_entry_content_project .item
@@ -320,9 +322,47 @@ body
 	padding-right: 20px;
 }
 
+/* Pad all items sitting under a group (first item of the grouping) in the projects list */
+.content_entry_content_project #gaming_s2dengine_group_items .item:not(:first-child),
+.content_entry_content_project #gaming_quake3arena_group_items .item:not(:first-child)
+{
+	padding-left: 40px;
+}
+
 .content_entry_content_project .item:hover
 {
 	background-color: rgba(100, 100, 100, 1);
+}
+
+.content_entry_content_project #gaming_s2dengine_group_items .item:hover:first-child,
+.content_entry_content_project #gaming_quake3arena_group_items .item:hover:first-child
+{
+	cursor: pointer;
+}
+
+.content_entry_section_project .title_container .title_text,
+.content_entry_content_project .item .text_group_title
+{
+	display: inline-block;
+}
+
+.content_entry_content_project .item .extra_info_group
+{
+	font-family: "Material Design Icons";
+	font-size: 20px;
+	text-align: center;
+	width: 40px;
+	float: right;
+	cursor: pointer;
+}
+
+.content_entry_section_project .title_container .extra_info
+{
+	line-height: 32px;
+	padding-right: 20px;
+	float: right;
+	cursor: pointer;
+	display: block;
 }
 
 .content_entry_content_project .item .extra_info
