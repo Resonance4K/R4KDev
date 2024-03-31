@@ -9,6 +9,16 @@ module.exports.getRoutes = function getRoutes()
 	routes.push(
 	{
 		method: "GET",
+		path: "/js/projects/quake3.js",
+		action: function(request, response)
+		{
+			APPLICATION.getResource(response, this.path, MIME_TYPE.JS);
+		}
+	});
+
+	routes.push(
+	{
+		method: "GET",
 		path: "/projects/devtools/SFR",
 		action: function(request, response)
 		{

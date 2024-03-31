@@ -79,6 +79,8 @@ module.exports.getRoutes = function getRoutes()
 				data[2] = decodeURIComponent(data[2].replace("message=", "").replace(/\+/g, " "));
 
 				// TODO: Implementation of sending contact form data to email address
+				console.log("Contact Form Submission:");
+				console.log(data);
 
 				APPLICATION.getResource(response, "/html/contact-form-sent.html", MIME_TYPE.HTML);
 			});

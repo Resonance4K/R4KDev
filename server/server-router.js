@@ -124,7 +124,7 @@ function getRouteGroupIndex(path)
 	}
 
 	// The standard sets of route groupings
-	if (path.startsWith("/projects/") || path.startsWith("/images/projects/"))
+	if (path.startsWith("/projects/") || path.startsWith("/images/projects/") || path.startsWith("/js/projects/"))
 	{
 		return KEYS_OF_FILES.indexOf("PROJECT");
 	}
