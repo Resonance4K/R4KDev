@@ -1,17 +1,19 @@
 
-window.onload = function()
+window.addEventListener("load", function()
 {
 	generateCopyrightYear();
 
 	toggleVisibiltyProjectItemGroups();
 
 	updateElementsFooter();
-}
+});
 
-window.onresize = function()
+window.addEventListener("resize", function()
 {
 	updateElementsFooter();
-}
+});
+
+// -------------------------------------------------------------------------------
 
 function generateCopyrightYear()
 {

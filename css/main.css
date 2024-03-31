@@ -237,6 +237,66 @@ body
 	padding-top: 0px;
 }
 
+.level_info_item
+{
+	display: inline-block;
+	width: 100%;
+	line-height: 32px;
+}
+
+.level_info_item:first-child
+{
+	padding-top: 10px;
+}
+
+.level_info_icons
+{
+	line-height: 64px;
+}
+
+.level_info_item .property
+{
+	width: 15%;
+	float: left;
+}
+
+.level_info_item .value
+{
+	width: 85%;
+	float: right;
+}
+
+.level_info_icons .value
+{
+	line-height: 0px;
+}
+
+.level_info_item .value .image
+{
+	display: inline-block;
+	height: 100%;
+	/* Center padding is "(Line Height - Icon Height) / 2" for the icon images */
+	padding-top: 16px;
+	padding-right: 20px;
+}
+
+.q3icon
+{
+	background-image: url("../images/projects/gaming/quake3/icons32px.jpg");
+	background-repeat: no-repeat;
+	background-attachment: scroll;
+	width: 32px;
+	height: 32px;
+	padding: 0px;
+}
+
+.q3icon_text
+{
+	/* Line height is "icon item line height - icon height" for the icon text */
+	line-height: 32px;
+	text-align: center;
+}
+
 .content_entry_home,
 .content_entry_section_project
 {
