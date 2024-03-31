@@ -166,5 +166,15 @@ module.exports.getRoutes = function getRoutes()
 		}
 	});
 
+	routes.push(
+	{
+		method: "GET",
+		path: "/images/projects/gaming/quake3/icons32px.jpg",
+		action: function(request, response)
+		{
+			APPLICATION.getResource(response, this.path, MIME_TYPE.JPG);
+		}
+	});
+
 	return routes;
 }
